@@ -3,7 +3,7 @@
 //   "name"        : "Image Search with Ascii2D.net"
 // , "description" : "Search similar images at ascii2d.net"
 // , "include"     : ["background"]
-// , "version"     : "1.0.1"
+// , "version"     : "1.0.2"
 // , "downloadURL" : "https://raw.github.com/taberareloo/patches-for-taberareloo/master/others/menu.photo.search.ascii2d.tbrl.js"
 // }
 // ==/Taberareloo==
@@ -16,11 +16,11 @@
       if ((info.mediaType !== 'image') || (!info.srcUrl)) return;
 
       chrome.tabs.create({
-        url    : 'http://www.ascii2d.net/imagesearch',
+        url    : 'http://www.ascii2d.net/',
         active : false
       }, function(tab) {
         chrome.tabs.executeScript(tab.id, {
-          code : 'u=document.getElementById("web_uri");u.value="'+info.srcUrl+'";u.form.submit();'
+          code : 'u=document.getElementById("uri-form");u.value="'+info.srcUrl+'";u.form.submit();'
         });
       });
     }
